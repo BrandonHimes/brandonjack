@@ -25,8 +25,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:paddingTop="30dp"
-            android:paddingBottom="30dp">
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -218,16 +218,19 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Spin!"
+            android:text="@string/spinText"
             android:id="@+id/spinButton"
             android:layout_gravity="center_horizontal|top"
-            android:paddingTop="20dp"
+            android:onClick="spin"
+            style="@android:style/Widget.Button" />
+
+    </LinearLayout>
+<!-- save me!
+android:paddingTop="20dp"
             android:paddingBottom="20dp"
             android:paddingLeft="50dp"
             android:paddingRight="50dp"
-            android:onClick="spin" />
-    </LinearLayout>
-
+            -->
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
 
