@@ -35,30 +35,15 @@
                 android:layout_gravity="center">
 
                 <ImageView android:id="@+id/wheel1Prev"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
+                    style="@style/WheelOption"
                     android:onClick="selectPrevOnWheel1" />
 
                 <ImageView android:id="@+id/wheel1Curr"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
+                    style="@style/WheelOption"
                     android:onClick="selectCurrOnWheel1" />
 
                 <ImageView android:id="@+id/wheel1Next"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
+                    style="@style/WheelOption"
                     android:onClick="selectNextOnWheel1" />
 
             </LinearLayout>
@@ -71,32 +56,17 @@
 
                 <ImageView
                     android:id="@+id/wheel2Prev"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
+                    style="@style/WheelOption"
                     android:onClick="selectPrevOnWheel2" />
 
                 <ImageView
                     android:id="@+id/wheel2Curr"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
+                    style="@style/WheelOption"
                     android:onClick="selectCurrOnWheel2" />
 
                 <ImageView
                     android:id="@+id/wheel2Next"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
+                    style="@style/WheelOption"
                     android:onClick="selectNextOnWheel2" />
             </LinearLayout>
 
@@ -108,33 +78,18 @@
 
                 <ImageView
                     android:id="@+id/wheel3Prev"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
+                    style="@style/WheelOption"
                     android:onClick="selectPrevOnWheel3" />
 
                 <view
                     class="com.jackbrando.memotome.component.WheelOptionView"
                     android:id="@+id/wheel3Curr"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
+                    style="@style/WheelOption"
                     android:onClick="selectCurrOnWheel3" />
 
                 <ImageView
                     android:id="@+id/wheel3Next"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
+                    style="@style/WheelOption"
                     android:onClick="selectNextOnWheel3" />
             </LinearLayout>
 
@@ -146,32 +101,17 @@
 
                 <ImageView
                     android:id="@+id/wheel4Prev"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
+                    style="@style/WheelOption"
                     android:onClick="selectPrevOnWheel4" />
 
                 <ImageView
                     android:id="@+id/wheel4Curr"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
+                    style="@style/WheelOption"
                     android:onClick="selectCurrOnWheel4" />
 
                 <ImageView
                     android:id="@+id/wheel4Next"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
+                    style="@style/WheelOption"
                     android:onClick="selectNextOnWheel4" />
             </LinearLayout>
 
@@ -183,32 +123,17 @@
 
                 <ImageView
                     android:id="@+id/wheel5Prev"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
+                    style="@style/WheelOption"
                     android:onClick="selectPrevOnWheel5" />
 
                 <ImageView
                     android:id="@+id/wheel5Curr"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
+                    style="@style/WheelOption"
                     android:onClick="selectCurrOnWheel5" />
 
                 <ImageView
                     android:id="@+id/wheel5Next"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
+                    style="@style/WheelOption"
                     android:onClick="selectNextOnWheel5" />
 
             </LinearLayout>
