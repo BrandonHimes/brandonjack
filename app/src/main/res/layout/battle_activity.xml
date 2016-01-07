@@ -1,236 +1,251 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:background="#0099cc"
-    tools:context=".PuzzleActivity"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0099cc"
+    android:paddingBottom="50dp"
     android:paddingTop="15dp"
-    android:paddingBottom="50dp">
+    tools:context=".PuzzleActivity">
 
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <ImageView
+            android:id="@+id/enemy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:adjustViewBounds="true"
             android:maxHeight="200dp"
-            android:layout_gravity="center_horizontal"
-            android:id="@+id/enemy"
-            android:src="@drawable/gooblin_elite"/>
+            android:src="@drawable/gooblin_elite" />
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp">
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
 
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center">
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp">
 
-                <ImageView android:id="@+id/wheel1Prev"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
-                    android:onClick="selectPrevOnWheel1" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
 
-                <ImageView android:id="@+id/wheel1Curr"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
-                    android:onClick="selectCurrOnWheel1" />
+                    <ImageView
+                        android:id="@+id/wheel1Prev"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:gravity="center"
+                        android:keepScreenOn="true"
+                        android:onClick="selectPrevOnWheel1"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/melee" />
 
-                <ImageView android:id="@+id/wheel1Next"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
-                    android:onClick="selectNextOnWheel1" />
+                    <ImageView
+                        android:id="@+id/wheel1Curr"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:gravity="center"
+                        android:keepScreenOn="true"
+                        android:onClick="selectCurrOnWheel1"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/melee" />
+
+                    <ImageView
+                        android:id="@+id/wheel1Next"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:gravity="center"
+                        android:keepScreenOn="true"
+                        android:onClick="selectNextOnWheel1"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/melee" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/wheel2Prev"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:gravity="center"
+                        android:keepScreenOn="true"
+                        android:onClick="selectPrevOnWheel2"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/melee" />
+
+                    <ImageView
+                        android:id="@+id/wheel2Curr"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:gravity="center"
+                        android:keepScreenOn="true"
+                        android:onClick="selectCurrOnWheel2"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/melee" />
+
+                    <ImageView
+                        android:id="@+id/wheel2Next"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:gravity="center"
+                        android:keepScreenOn="true"
+                        android:onClick="selectNextOnWheel2"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/melee" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/wheel3Prev"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:gravity="center"
+                        android:keepScreenOn="true"
+                        android:onClick="selectPrevOnWheel3"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/melee" />
+
+                    <ImageView
+                        android:id="@+id/wheel3Curr"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:gravity="center"
+                        android:keepScreenOn="true"
+                        android:onClick="selectCurrOnWheel3"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/melee" />
+
+                    <ImageView
+                        android:id="@+id/wheel3Next"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:gravity="center"
+                        android:keepScreenOn="true"
+                        android:onClick="selectNextOnWheel3"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/melee" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/wheel4Prev"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:gravity="center"
+                        android:keepScreenOn="true"
+                        android:onClick="selectPrevOnWheel4"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/melee" />
+
+                    <ImageView
+                        android:id="@+id/wheel4Curr"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:gravity="center"
+                        android:keepScreenOn="true"
+                        android:onClick="selectCurrOnWheel4"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/melee" />
+
+                    <ImageView
+                        android:id="@+id/wheel4Next"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:gravity="center"
+                        android:keepScreenOn="true"
+                        android:onClick="selectNextOnWheel4"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/melee" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/wheel5Prev"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:gravity="center"
+                        android:keepScreenOn="true"
+                        android:onClick="selectPrevOnWheel5"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/melee" />
+
+                    <ImageView
+                        android:id="@+id/wheel5Curr"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:gravity="center"
+                        android:keepScreenOn="true"
+                        android:onClick="selectCurrOnWheel5"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/melee" />
+
+                    <ImageView
+                        android:id="@+id/wheel5Next"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:gravity="center"
+                        android:keepScreenOn="true"
+                        android:onClick="selectNextOnWheel5"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/melee" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" >
+            <view
+                class="com.jackbrando.memotome.component.WheelOptionView"
+                android:layout_width="360dp"
+                android:layout_height="240dp"/>
 
-                <ImageView
-                    android:id="@+id/wheel2Prev"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
-                    android:onClick="selectPrevOnWheel2" />
-
-                <ImageView
-                    android:id="@+id/wheel2Curr"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
-                    android:onClick="selectCurrOnWheel2" />
-
-                <ImageView
-                    android:id="@+id/wheel2Next"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
-                    android:onClick="selectNextOnWheel2" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" >
-
-                <ImageView
-                    android:id="@+id/wheel3Prev"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
-                    android:onClick="selectPrevOnWheel3" />
-
-                <view
-                    class="com.jackbrando.memotome.component.WheelOptionView"
-                    android:id="@+id/wheel3Curr"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
-                    android:onClick="selectCurrOnWheel3" />
-
-                <ImageView
-                    android:id="@+id/wheel3Next"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
-                    android:onClick="selectNextOnWheel3" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" >
-
-                <ImageView
-                    android:id="@+id/wheel4Prev"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
-                    android:onClick="selectPrevOnWheel4" />
-
-                <ImageView
-                    android:id="@+id/wheel4Curr"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
-                    android:onClick="selectCurrOnWheel4" />
-
-                <ImageView
-                    android:id="@+id/wheel4Next"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
-                    android:onClick="selectNextOnWheel4" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" >
-
-                <ImageView
-                    android:id="@+id/wheel5Prev"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
-                    android:onClick="selectPrevOnWheel5" />
-
-                <ImageView
-                    android:id="@+id/wheel5Curr"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
-                    android:onClick="selectCurrOnWheel5" />
-
-                <ImageView
-                    android:id="@+id/wheel5Next"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:keepScreenOn="true"
-                    android:gravity="center"
-                    android:src="@drawable/melee"
-                    android:scaleType="fitCenter"
-                    android:onClick="selectNextOnWheel5" />
-
-            </LinearLayout>
-
-        </LinearLayout>
+        </FrameLayout>
 
         <Button
+            android:id="@+id/spinButton"
+            style="@android:style/Widget.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/spinText"
-            android:id="@+id/spinButton"
             android:layout_gravity="center_horizontal|top"
             android:onClick="spin"
-            style="@android:style/Widget.Button" />
+            android:text="@string/spinText" />
 
     </LinearLayout>
-<!-- save me!
-android:paddingTop="20dp"
-            android:paddingBottom="20dp"
-            android:paddingLeft="50dp"
-            android:paddingRight="50dp"
-            -->
+    <!-- save me!
+    android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                -->
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
 

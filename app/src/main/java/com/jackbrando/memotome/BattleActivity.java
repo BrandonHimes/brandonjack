@@ -1,10 +1,7 @@
 package com.jackbrando.memotome;
 
 import android.app.Activity;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
-import android.graphics.Canvas;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
