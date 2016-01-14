@@ -46,7 +46,6 @@
                         android:layout_height="70dp"
                         android:gravity="center"
                         android:keepScreenOn="true"
-                        android:onClick="selectPrevOnWheel1"
                         android:scaleType="fitCenter"
                         android:src="@drawable/melee" />
 
@@ -56,7 +55,6 @@
                         android:layout_height="70dp"
                         android:gravity="center"
                         android:keepScreenOn="true"
-                        android:onClick="selectCurrOnWheel1"
                         android:scaleType="fitCenter"
                         android:src="@drawable/melee" />
 
@@ -66,7 +64,6 @@
                         android:layout_height="70dp"
                         android:gravity="center"
                         android:keepScreenOn="true"
-                        android:onClick="selectNextOnWheel1"
                         android:scaleType="fitCenter"
                         android:src="@drawable/melee" />
 
@@ -84,7 +81,6 @@
                         android:layout_height="70dp"
                         android:gravity="center"
                         android:keepScreenOn="true"
-                        android:onClick="selectPrevOnWheel2"
                         android:scaleType="fitCenter"
                         android:src="@drawable/melee" />
 
@@ -94,7 +90,6 @@
                         android:layout_height="70dp"
                         android:gravity="center"
                         android:keepScreenOn="true"
-                        android:onClick="selectCurrOnWheel2"
                         android:scaleType="fitCenter"
                         android:src="@drawable/melee" />
 
@@ -104,7 +99,6 @@
                         android:layout_height="70dp"
                         android:gravity="center"
                         android:keepScreenOn="true"
-                        android:onClick="selectNextOnWheel2"
                         android:scaleType="fitCenter"
                         android:src="@drawable/melee" />
                 </LinearLayout>
@@ -121,7 +115,6 @@
                         android:layout_height="70dp"
                         android:gravity="center"
                         android:keepScreenOn="true"
-                        android:onClick="selectPrevOnWheel3"
                         android:scaleType="fitCenter"
                         android:src="@drawable/melee" />
 
@@ -131,7 +124,6 @@
                         android:layout_height="70dp"
                         android:gravity="center"
                         android:keepScreenOn="true"
-                        android:onClick="selectCurrOnWheel3"
                         android:scaleType="fitCenter"
                         android:src="@drawable/melee" />
 
@@ -141,7 +133,6 @@
                         android:layout_height="70dp"
                         android:gravity="center"
                         android:keepScreenOn="true"
-                        android:onClick="selectNextOnWheel3"
                         android:scaleType="fitCenter"
                         android:src="@drawable/melee" />
                 </LinearLayout>
@@ -158,7 +149,6 @@
                         android:layout_height="70dp"
                         android:gravity="center"
                         android:keepScreenOn="true"
-                        android:onClick="selectPrevOnWheel4"
                         android:scaleType="fitCenter"
                         android:src="@drawable/melee" />
 
@@ -168,7 +158,6 @@
                         android:layout_height="70dp"
                         android:gravity="center"
                         android:keepScreenOn="true"
-                        android:onClick="selectCurrOnWheel4"
                         android:scaleType="fitCenter"
                         android:src="@drawable/melee" />
 
@@ -178,7 +167,6 @@
                         android:layout_height="70dp"
                         android:gravity="center"
                         android:keepScreenOn="true"
-                        android:onClick="selectNextOnWheel4"
                         android:scaleType="fitCenter"
                         android:src="@drawable/melee" />
                 </LinearLayout>
@@ -195,7 +183,6 @@
                         android:layout_height="70dp"
                         android:gravity="center"
                         android:keepScreenOn="true"
-                        android:onClick="selectPrevOnWheel5"
                         android:scaleType="fitCenter"
                         android:src="@drawable/melee" />
 
@@ -205,7 +192,6 @@
                         android:layout_height="70dp"
                         android:gravity="center"
                         android:keepScreenOn="true"
-                        android:onClick="selectCurrOnWheel5"
                         android:scaleType="fitCenter"
                         android:src="@drawable/melee" />
 
@@ -215,7 +201,6 @@
                         android:layout_height="70dp"
                         android:gravity="center"
                         android:keepScreenOn="true"
-                        android:onClick="selectNextOnWheel5"
                         android:scaleType="fitCenter"
                         android:src="@drawable/melee" />
 
@@ -224,7 +209,7 @@
             </LinearLayout>
 
             <view
-                class="com.jackbrando.memotome.component.WheelOptionView"
+                class="com.jackbrando.memotome.component.WheelSelectionView"
                 android:layout_width="360dp"
                 android:layout_height="240dp"/>
 

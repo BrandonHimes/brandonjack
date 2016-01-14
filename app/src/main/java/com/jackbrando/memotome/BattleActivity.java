@@ -23,12 +23,12 @@ public class BattleActivity extends Activity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.battle_activity);
-
     }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
+        spinAllWheels();
     }
     
     private Wheel wheel1 = new Wheel();
@@ -38,13 +38,16 @@ public class BattleActivity extends Activity {
     private Wheel wheel5 = new Wheel();
 
     public void spin(View view) {
+        spinAllWheels();
+    }
+
+    private void spinAllWheels() {
         wheel1.spin();
         wheel2.spin();
         wheel3.spin();
         wheel4.spin();
         wheel5.spin();
         updateWheelValues();
-        //createARandomLine();
     }
 
     private void updateWheelValues() {
@@ -75,56 +78,6 @@ public class BattleActivity extends Activity {
         updateWheel(wheel5, R.id.wheel5Prev, R.id.wheel5Curr, R.id.wheel5Next);
     }
 
-    public void selectPrevOnWheel1(View view){
-        wheel1.selectPrevous();
-        
-    }
-    public void selectCurrOnWheel1(View view){
-        wheel1.selectCurrent();
-        updateWheel1();
-    }
-    public void selectNextOnWheel1(View view){
-        wheel1.selectNext();
-        updateWheel1();
-    }
-    public void selectPrevOnWheel2(View view){
-        wheel2.selectPrevous();
-        updateWheel2();
-    }
-    public void selectCurrOnWheel2(View view){
-        wheel2.selectCurrent();
-    }
-    public void selectNextOnWheel2(View view){
-        wheel2.selectNext();
-    }
-    public void selectPrevOnWheel3(View view){
-        wheel3.selectPrevous();
-    }
-    public void selectCurrOnWheel3(View view){
-        wheel3.selectCurrent();
-    }
-    public void selectNextOnWheel3(View view){
-        wheel3.selectNext();
-    }
-    public void selectPrevOnWheel4(View view){
-        wheel4.selectPrevous();
-    }
-    public void selectCurrOnWheel4(View view){
-        wheel4.selectCurrent();
-    }
-    public void selectNextOnWheel4(View view){
-        wheel4.selectNext();
-    }
-    public void selectPrevOnWheel5(View view){
-        wheel5.selectPrevous();
-    }
-    public void selectCurrOnWheel5(View view){
-        wheel5.selectCurrent();
-    }
-    public void selectNextOnWheel5(View view){
-        wheel5.selectNext();
-    }
-
     private void updateWheel(Wheel myWheel, int wheelPrevious, int wheelCurrent, int wheelNext) {
         updateWheelOption(myWheel.getPreviousOption(), wheelPrevious, myWheel.getSelectedOption());
         updateWheelOption(myWheel.getCurrentOption(), wheelCurrent, myWheel.getSelectedOption());
@@ -137,5 +90,45 @@ public class BattleActivity extends Activity {
         int imageResource = getResources().getIdentifier(uri, null, getPackageName());
         Drawable res = getResources().getDrawable(imageResource);
         image.setImageDrawable(res);
+    }
+
+    public Wheel getWheel1() {
+        return wheel1;
+    }
+
+    public void setWheel1(Wheel wheel1) {
+        this.wheel1 = wheel1;
+    }
+
+    public Wheel getWheel2() {
+        return wheel2;
+    }
+
+    public void setWheel2(Wheel wheel2) {
+        this.wheel2 = wheel2;
+    }
+
+    public Wheel getWheel3() {
+        return wheel3;
+    }
+
+    public void setWheel3(Wheel wheel3) {
+        this.wheel3 = wheel3;
+    }
+
+    public Wheel getWheel4() {
+        return wheel4;
+    }
+
+    public void setWheel4(Wheel wheel4) {
+        this.wheel4 = wheel4;
+    }
+
+    public Wheel getWheel5() {
+        return wheel5;
+    }
+
+    public void setWheel5(Wheel wheel5) {
+        this.wheel5 = wheel5;
     }
 }
