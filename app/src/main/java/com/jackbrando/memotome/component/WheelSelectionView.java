@@ -11,15 +11,15 @@ import android.widget.ImageView;
 /**
  * Created by brando on 12/2/15.
  */
-public class WheelOptionView extends ImageView {
+public class WheelSelectionView extends ImageView {
 
     private Paint paint = new Paint();
 
-    public WheelOptionView(Context context) {
+    public WheelSelectionView(Context context) {
         super(context);
     }
 
-    public WheelOptionView(Context context, AttributeSet attrs) {
+    public WheelSelectionView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
