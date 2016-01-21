@@ -9,6 +9,11 @@ import android.widget.ImageView;
 
 import com.jackbrando.memotome.BattleActivity;
 import com.jackbrando.memotome.game.Wheel;
+import com.jackbrando.memotome.game.selection.SelectionLink;
+import com.jackbrando.memotome.game.selection.WheelSelectionFinder;
+import com.jackbrando.memotome.game.selection.Selection;
+
+import java.util.List;
 
 /**
  * Created by brando on 12/2/15.
@@ -42,14 +47,13 @@ public class WheelSelectionView extends ImageView {
 
         BattleActivity activity = (BattleActivity) getContext();
         Wheel wheel1 = activity.getWheel1();
-        System.out.println(wheel1.getCurrentOption());
 
-
-        drawWheelOptionLink(0, 0, 0, 1);
-        drawWheelOptionLink(0, 1, 1, 2);
-        drawWheelOptionLink(1, 2, 2, 2);
-        drawWheelOptionLink(2, 2, 3, 2);
-        drawWheelOptionLink(3, 2, 4, 2);
+        List<Selection> selections = WheelSelectionFinder.findSelections();
+        for(Selection selection : selections){
+            for(SelectionLink link : selection.getLinks()){
+                drawWheelOptionLink(link.getStartingX(), link.getStartingY(), link.getEndingX(), link.getEndingY());
+            }
+        }
     }
 
     private void drawWheelOptionLink(int x1, int y1, int x2, int y2){
