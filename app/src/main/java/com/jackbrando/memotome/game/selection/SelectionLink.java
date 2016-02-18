@@ -1,53 +1,41 @@
 package com.jackbrando.memotome.game.selection;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by brando on 1/20/16.
  */
 public class SelectionLink {
-    private int startingX = -1;
-    private int startingY = -1;
-    private int endingX = -1;
-    private int endingY = -1;
+    private SelectionPoint startingPoint;
+    private SelectionPoint endingPoint;
 
-    public SelectionLink(int startingX, int startingY, int endingX, int endingY) {
-        this.startingX = startingX;
-        this.startingY = startingY;
-        this.endingX = endingX;
-        this.endingY = endingY;
+    public SelectionLink(SelectionPoint startingPoint, SelectionPoint endingPoint) {
+        this.startingPoint = startingPoint;
+        this.endingPoint = endingPoint;
     }
 
-    public SelectionLink() {
+    public SelectionPoint getEndingPoint() {
+        return endingPoint;
     }
 
-    public int getStartingX() {
-        return startingX;
+    public void setEndingPoint(SelectionPoint endingPoint) {
+        this.endingPoint = endingPoint;
     }
 
-    public void setStartingX(int startingX) {
-        this.startingX = startingX;
+    public SelectionPoint getStartingPoint() {
+        return startingPoint;
     }
 
-    public int getStartingY() {
-        return startingY;
+    public void setStartingPoint(SelectionPoint start) {
+        this.startingPoint = start;
     }
 
-    public void setStartingY(int startingY) {
-        this.startingY = startingY;
+    public List<SelectionPoint> getPoints(){
+        List<SelectionPoint> points = new ArrayList<SelectionPoint>();
+        points.add(startingPoint);
+        points.add(endingPoint);
+        return points;
     }
 
-    public int getEndingX() {
-        return endingX;
-    }
-
-    public void setEndingX(int endingX) {
-        this.endingX = endingX;
-    }
-
-    public int getEndingY() {
-        return endingY;
-    }
-
-    public void setEndingY(int endingY) {
-        this.endingY = endingY;
-    }
 }

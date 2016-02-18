@@ -1,5 +1,7 @@
 package com.jackbrando.memotome.game.selection;
 
+import com.jackbrando.memotome.game.Wheel;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,20 +10,88 @@ import java.util.List;
  */
 public class WheelSelectionFinder {
 
-    public static List<Selection> findSelections(){
+    public static int MAX_X = 5;
+    public static int MAX_Y = 3;
+
+    public static List<Selection> findSelections(List<Wheel> wheels){
         List<Selection> selections = new ArrayList<Selection>(3);
 
-        Selection fakeSelection = new Selection();
-
-        fakeSelection.addLink(0, 0, 0, 1);
-        fakeSelection.addLink(0, 1, 1, 2);
-        fakeSelection.addLink(1, 2, 2, 2);
-        fakeSelection.addLink(2, 2, 3, 2);
-        fakeSelection.addLink(3, 2, 4, 1);
-
-        selections.add(fakeSelection);
+        for(int x=0; x< MAX_X; x++){
+            for(int y=0; y< MAX_Y; y++){
+                Selection selection = new Selection();
+                SelectionPoint point = new SelectionPoint(x,y);
+                selection = findLongestSelection(point, wheels, selection, selections);
+                if(selection.getLength() > 0){
+                    selections.add(selection);
+                }
+            }
+        }
 
         return selections;
+    }
+
+    private static Selection findLongestSelection(SelectionPoint point, List<Wheel> wheels, Selection selection, List<Selection> existingSelections) {
+        System.out.println("Checking for selections starting at " + point.getX() + "," + point.getY());
+        List<SelectionPoint> adjacentPoints = new ArrayList<SelectionPoint>();
+        adjacentPoints.add(new SelectionPoint(point.getX()+1, point.getY()));
+        adjacentPoints.add(new SelectionPoint(point.getX()-1, point.getY()));
+        adjacentPoints.add(new SelectionPoint(point.getX()+1, point.getY()-1));
+        adjacentPoints.add(new SelectionPoint(point.getX()+1, point.getY()+1));
+        adjacentPoints.add(new SelectionPoint(point.getX()-1, point.getY()-1));
+        adjacentPoints.add(new SelectionPoint(point.getX()-1, point.getY()+1));
+
+        for(SelectionPoint adjacentPoint : adjacentPoints){
+            Selection newSelection = new Selection(selection);
+            if(isValidPoint(adjacentPoint) && isMatchingOption(point, adjacentPoint, wheels) && !isAlreadyUsed(adjacentPoint, existingSelections, newSelection)) {
+                SelectionLink newLink = new SelectionLink(point, adjacentPoint);
+                newSelection.addLink(newLink);
+                if(newSelection.getLength() > selection.getLength()){
+                    System.out.println("Going from " + point.getX() + "," + point.getY() + " to " + adjacentPoint.getX() + "," + adjacentPoint.getY());
+                    selection = findLongestSelection(adjacentPoint, wheels, newSelection, existingSelections);
+                }
+            }
+        }
+
+        return selection;
+
+    }
+
+    private static boolean isValidPoint(SelectionPoint point){
+        return (point.getX() > -1 && point.getY() > -1 && point.getX() < MAX_X && point.getY() < MAX_Y);
+    }
+
+    private static boolean isMatchingOption(SelectionPoint point1, SelectionPoint point2, List<Wheel> wheels){
+        String option1 = getOptionOfY(wheels.get(point1.getX()), point1.getY());
+        String option2 = getOptionOfY(wheels.get(point2.getX()), point2.getY());
+        return option1.equals(option2);
+    }
+
+    private static String getOptionOfY(Wheel wheel, int y){
+        if(y<2){
+            if(y<1){
+                return wheel.getPreviousOption();
+            }else{
+                return wheel.getCurrentOption();
+            }
+        }else{
+            return wheel.getNextOption();
+        }
+    }
+
+    private static boolean isAlreadyUsed(SelectionPoint currentPoint, List<Selection> selections, Selection newSelection){
+        List<Selection> allSelections = new ArrayList<Selection>();
+        allSelections.addAll(selections);
+        allSelections.add(newSelection);
+        for(Selection sel : allSelections){
+            for(SelectionLink link : sel.getLinks()){
+                for(SelectionPoint point : link.getPoints()){
+                    if(point.equals(currentPoint)){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
 }

@@ -9,6 +9,14 @@ import java.util.List;
 public class Selection {
     List<SelectionLink> links = null;
 
+    public Selection(Selection existingSelection) {
+        initializeLinks();
+        List<SelectionLink> links = existingSelection.getLinks();
+        for(SelectionLink link : links){
+            addLink(link);
+        }
+    }
+
     public Selection() {
         initializeLinks();
     }
@@ -18,7 +26,7 @@ public class Selection {
     }
 
     public void addLink(int startX, int startY, int endX, int endY){
-        addLink(new SelectionLink(startX, startY, endX, endY));
+        addLink(new SelectionLink(new SelectionPoint(startX, startY), new SelectionPoint(endX, endY)));
     }
 
     public List<SelectionLink> getLinks(){
@@ -27,5 +35,9 @@ public class Selection {
 
     public void initializeLinks(){
         links = new ArrayList<SelectionLink>(15);
+    }
+
+    public int getLength(){
+        return links.size();
     }
 }

@@ -13,6 +13,7 @@ import com.jackbrando.memotome.game.selection.SelectionLink;
 import com.jackbrando.memotome.game.selection.WheelSelectionFinder;
 import com.jackbrando.memotome.game.selection.Selection;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -46,12 +47,16 @@ public class WheelSelectionView extends ImageView {
         this.canvas = canvas;
 
         BattleActivity activity = (BattleActivity) getContext();
-        Wheel wheel1 = activity.getWheel1();
-
-        List<Selection> selections = WheelSelectionFinder.findSelections();
+        List<Wheel> wheels = new ArrayList<Wheel>();
+        wheels.add(activity.getWheel1());
+        wheels.add(activity.getWheel2());
+        wheels.add(activity.getWheel3());
+        wheels.add(activity.getWheel4());
+        wheels.add(activity.getWheel5());
+        List<Selection> selections = WheelSelectionFinder.findSelections(wheels);
         for(Selection selection : selections){
             for(SelectionLink link : selection.getLinks()){
-                drawWheelOptionLink(link.getStartingX(), link.getStartingY(), link.getEndingX(), link.getEndingY());
+                //drawWheelOptionLink(link.getStartingX(), link.getStartingY(), link.getEndingX(), link.getEndingY());
             }
         }
     }

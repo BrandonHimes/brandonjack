@@ -9,6 +9,10 @@ public class Wheel {
     int spinPosition = 0;
     String selection = null;
 
+    public void setSpinPosition(int spinPosition) {
+        this.spinPosition = spinPosition;
+    }
+
     public Wheel(){
         spin();
     }
