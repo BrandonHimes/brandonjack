@@ -9,7 +9,9 @@ import android.widget.ImageView;
 
 import com.jackbrando.memotome.BattleActivity;
 import com.jackbrando.memotome.game.Wheel;
+import com.jackbrando.memotome.game.selection.SelectionLine;
 import com.jackbrando.memotome.game.selection.SelectionLink;
+import com.jackbrando.memotome.game.selection.SelectionPoint;
 import com.jackbrando.memotome.game.selection.WheelSelectionFinder;
 import com.jackbrando.memotome.game.selection.Selection;
 
@@ -24,12 +26,7 @@ public class WheelSelectionView extends ImageView {
     private static final int IMAGE_DIM = 70;
     private static final int MARGIN_DPS = 20;
 
-    private Paint paint = new Paint();
-    {
-        paint.setColor(Color.MAGENTA);
-        paint.setStrokeWidth(20f);
-        paint.setStrokeCap(Paint.Cap.ROUND);
-    }
+
 
     private Canvas canvas = null;
 
@@ -56,14 +53,17 @@ public class WheelSelectionView extends ImageView {
         List<Selection> selections = WheelSelectionFinder.findSelections(wheels);
         for(Selection selection : selections){
             for(SelectionLink link : selection.getLinks()){
-                //drawWheelOptionLink(link.getStartingX(), link.getStartingY(), link.getEndingX(), link.getEndingY());
+                drawWheelOptionLink(link);
             }
         }
     }
 
-    private void drawWheelOptionLink(int x1, int y1, int x2, int y2){
-        canvas.drawLine(convertToImageCenterCoord(x1), convertToImageCenterCoord(y1),
-                convertToImageCenterCoord(x2), convertToImageCenterCoord(y2), paint);
+    private void drawWheelOptionLink(SelectionLink link){
+        SelectionLine.getLine().setColor(link.getOption().getColor());
+        SelectionPoint start = link.getStartingPoint();
+        SelectionPoint end = link.getEndingPoint();
+        canvas.drawLine(convertToImageCenterCoord(start.getX()), convertToImageCenterCoord(start.getY()),
+                convertToImageCenterCoord(end.getX()), convertToImageCenterCoord(end.getY()), SelectionLine.getLine());
     }
 
     private float convertToImageCenterCoord(int pos){

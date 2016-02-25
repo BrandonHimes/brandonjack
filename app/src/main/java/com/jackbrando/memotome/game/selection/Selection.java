@@ -1,5 +1,7 @@
 package com.jackbrando.memotome.game.selection;
 
+import com.jackbrando.memotome.game.BattleOption;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,8 +27,10 @@ public class Selection {
         links.add(link);
     }
 
-    public void addLink(int startX, int startY, int endX, int endY){
-        addLink(new SelectionLink(new SelectionPoint(startX, startY), new SelectionPoint(endX, endY)));
+    public void addLink(int startX, int startY, int endX, int endY, BattleOption option){
+        SelectionPoint startingPoint = new SelectionPoint(startX, startY);
+        SelectionPoint endingPoint = new SelectionPoint(endX, endY);
+        addLink(new SelectionLink(startingPoint, endingPoint, option));
     }
 
     public List<SelectionLink> getLinks(){

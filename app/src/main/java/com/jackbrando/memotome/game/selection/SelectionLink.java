@@ -1,5 +1,7 @@
 package com.jackbrando.memotome.game.selection;
 
+import com.jackbrando.memotome.game.BattleOption;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,9 +12,12 @@ public class SelectionLink {
     private SelectionPoint startingPoint;
     private SelectionPoint endingPoint;
 
-    public SelectionLink(SelectionPoint startingPoint, SelectionPoint endingPoint) {
+    private BattleOption option;
+
+    public SelectionLink(SelectionPoint startingPoint, SelectionPoint endingPoint, BattleOption option) {
         this.startingPoint = startingPoint;
         this.endingPoint = endingPoint;
+        this.option = option;
     }
 
     public SelectionPoint getEndingPoint() {
@@ -29,6 +34,14 @@ public class SelectionLink {
 
     public void setStartingPoint(SelectionPoint start) {
         this.startingPoint = start;
+    }
+
+    public BattleOption getOption() {
+        return option;
+    }
+
+    public void setOption(BattleOption option) {
+        this.option = option;
     }
 
     public List<SelectionPoint> getPoints(){

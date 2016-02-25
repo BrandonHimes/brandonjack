@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import com.jackbrando.memotome.game.BattleOption;
 import com.jackbrando.memotome.game.Wheel;
 
 
@@ -79,14 +80,16 @@ public class BattleActivity extends Activity {
     }
 
     private void updateWheel(Wheel myWheel, int wheelPrevious, int wheelCurrent, int wheelNext) {
-        updateWheelOption(myWheel.getPreviousOption(), wheelPrevious, myWheel.getSelectedOption());
-        updateWheelOption(myWheel.getCurrentOption(), wheelCurrent, myWheel.getSelectedOption());
-        updateWheelOption(myWheel.getNextOption(), wheelNext, myWheel.getSelectedOption());
+        updateWheelOption(myWheel.getPreviousOption(), wheelPrevious);
+        updateWheelOption(myWheel.getCurrentOption(), wheelCurrent);
+        updateWheelOption(myWheel.getNextOption(), wheelNext);
+        View selectionCanvas = findViewById(R.id.SelectionCanvas);
+        selectionCanvas.invalidate();
     }
 
-    private void updateWheelOption(String option, int id, String selected) {
+    private void updateWheelOption(BattleOption option, int id) {
         ImageView image = (ImageView) findViewById(id);
-        String uri = "@drawable/" + option;
+        String uri = "@drawable/" + option.getName();
         int imageResource = getResources().getIdentifier(uri, null, getPackageName());
         Drawable res = getResources().getDrawable(imageResource);
         image.setImageDrawable(res);

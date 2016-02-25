@@ -4,10 +4,10 @@ package com.jackbrando.memotome.game;
  * Created by brando on 11/4/15.
  */
 public class Wheel {
-    public static String[] BATTLE_OPTIONS = {"melee", "heal", "magic", "thieve", "flee"};
+    public static BattleOption[] BATTLE_OPTIONS = {BattleOption.melee, BattleOption.heal, BattleOption.magic, BattleOption.thieve, BattleOption.flee};
 
     int spinPosition = 0;
-    String selection = null;
+    BattleOption selection = null;
 
     public void setSpinPosition(int spinPosition) {
         this.spinPosition = spinPosition;
@@ -17,7 +17,7 @@ public class Wheel {
         spin();
     }
 
-    public String getPreviousOption(){
+    public BattleOption getPreviousOption(){
         int previous = spinPosition-1;
         if(previous < 0){
             previous = BATTLE_OPTIONS.length-1;
@@ -25,7 +25,7 @@ public class Wheel {
         return BATTLE_OPTIONS[previous];
     }
 
-    public String getNextOption(){
+    public BattleOption getNextOption(){
         int next = spinPosition+1;
         if(next > BATTLE_OPTIONS.length-1){
             next = 0;
@@ -33,7 +33,7 @@ public class Wheel {
         return BATTLE_OPTIONS[next];
     }
 
-    public String getCurrentOption(){
+    public BattleOption getCurrentOption(){
         return BATTLE_OPTIONS[spinPosition];
     }
 
@@ -55,6 +55,6 @@ public class Wheel {
         selection = getNextOption();
     }
 
-    public String getSelectedOption(){ return selection; }
+    public BattleOption getSelectedOption(){ return selection; }
 
 }
