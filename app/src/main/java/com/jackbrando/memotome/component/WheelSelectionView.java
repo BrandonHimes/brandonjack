@@ -2,8 +2,6 @@ package com.jackbrando.memotome.component;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
@@ -11,6 +9,7 @@ import com.jackbrando.memotome.BattleActivity;
 import com.jackbrando.memotome.game.Wheel;
 import com.jackbrando.memotome.game.selection.SelectionLine;
 import com.jackbrando.memotome.game.selection.SelectionLink;
+import com.jackbrando.memotome.game.selection.SelectionListener;
 import com.jackbrando.memotome.game.selection.SelectionPoint;
 import com.jackbrando.memotome.game.selection.WheelSelectionFinder;
 import com.jackbrando.memotome.game.selection.Selection;
@@ -56,6 +55,7 @@ public class WheelSelectionView extends ImageView {
                 drawWheelOptionLink(link);
             }
         }
+        activity.setSelections(selections);
     }
 
     private void drawWheelOptionLink(SelectionLink link){

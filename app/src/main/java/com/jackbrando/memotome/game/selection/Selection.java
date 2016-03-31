@@ -1,6 +1,7 @@
 package com.jackbrando.memotome.game.selection;
 
 import com.jackbrando.memotome.game.BattleOption;
+import com.jackbrando.memotome.game.Wheel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,4 +45,26 @@ public class Selection {
     public int getLength(){
         return links.size();
     }
+
+    public boolean isSelected(BattleOption option, Wheel wheel){
+        boolean result = false;
+        for (SelectionLink link : links) {
+            for(SelectionPoint point : link.getPoints()){
+                if( isOnSameWheelAsSelection(wheel, point)
+                        && isSameOptionAsSelection(option, link)){
+                    result = true;
+                }
+            }
+        }
+        return result;
+    }
+
+    private boolean isSameOptionAsSelection(BattleOption option, SelectionLink link) {
+        return link.getOption() == option;
+    }
+
+    private boolean isOnSameWheelAsSelection(Wheel wheel, SelectionPoint point) {
+        return (point.getX()+1) == wheel.getIndex();
+    }
+
 }

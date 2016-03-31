@@ -9,12 +9,18 @@ import android.widget.ImageView;
 
 import com.jackbrando.memotome.game.BattleOption;
 import com.jackbrando.memotome.game.Wheel;
+import com.jackbrando.memotome.game.selection.Selection;
+import com.jackbrando.memotome.game.selection.SelectionListener;
+
+import java.util.List;
 
 
 /**
  * An example full-screen activity
  */
 public class BattleActivity extends Activity {
+
+    private List<Selection> selections;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +38,11 @@ public class BattleActivity extends Activity {
         spinAllWheels();
     }
     
-    private Wheel wheel1 = new Wheel();
-    private Wheel wheel2 = new Wheel();
-    private Wheel wheel3 = new Wheel();
-    private Wheel wheel4 = new Wheel();
-    private Wheel wheel5 = new Wheel();
+    private Wheel wheel1 = new Wheel(1);
+    private Wheel wheel2 = new Wheel(2);
+    private Wheel wheel3 = new Wheel(3);
+    private Wheel wheel4 = new Wheel(4);
+    private Wheel wheel5 = new Wheel(5);
 
     public void spin(View view) {
         spinAllWheels();
@@ -80,19 +86,20 @@ public class BattleActivity extends Activity {
     }
 
     private void updateWheel(Wheel myWheel, int wheelPrevious, int wheelCurrent, int wheelNext) {
-        updateWheelOption(myWheel.getPreviousOption(), wheelPrevious);
-        updateWheelOption(myWheel.getCurrentOption(), wheelCurrent);
-        updateWheelOption(myWheel.getNextOption(), wheelNext);
+        updateWheelOption(myWheel.getPreviousOption(), wheelPrevious, myWheel);
+        updateWheelOption(myWheel.getCurrentOption(), wheelCurrent, myWheel);
+        updateWheelOption(myWheel.getNextOption(), wheelNext, myWheel);
         View selectionCanvas = findViewById(R.id.SelectionCanvas);
         selectionCanvas.invalidate();
     }
 
-    private void updateWheelOption(BattleOption option, int id) {
+    private void updateWheelOption(BattleOption option, int id, Wheel wheel) {
         ImageView image = (ImageView) findViewById(id);
         String uri = "@drawable/" + option.getName();
         int imageResource = getResources().getIdentifier(uri, null, getPackageName());
         Drawable res = getResources().getDrawable(imageResource);
         image.setImageDrawable(res);
+        image.setOnTouchListener(new SelectionListener(option, wheel));
     }
 
     public Wheel getWheel1() {
@@ -133,5 +140,13 @@ public class BattleActivity extends Activity {
 
     public void setWheel5(Wheel wheel5) {
         this.wheel5 = wheel5;
+    }
+
+    public void setSelections(List<Selection> selections) {
+        this.selections = selections;
+    }
+
+    public List<Selection> getSelections() {
+        return selections;
     }
 }

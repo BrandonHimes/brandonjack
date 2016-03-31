@@ -5,15 +5,16 @@ package com.jackbrando.memotome.game;
  */
 public class Wheel {
     public static BattleOption[] BATTLE_OPTIONS = {BattleOption.melee, BattleOption.heal, BattleOption.magic, BattleOption.thieve, BattleOption.flee};
-
-    int spinPosition = 0;
-    BattleOption selection = null;
+    private int index;
+    private int spinPosition = 0;
+    private BattleOption selection = null;
 
     public void setSpinPosition(int spinPosition) {
         this.spinPosition = spinPosition;
     }
 
-    public Wheel(){
+    public Wheel(int index){
+        this.index = index;
         spin();
     }
 
@@ -57,4 +58,7 @@ public class Wheel {
 
     public BattleOption getSelectedOption(){ return selection; }
 
+    public int getIndex() {
+        return index;
+    }
 }
