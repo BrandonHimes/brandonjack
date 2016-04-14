@@ -1,11 +1,11 @@
 package com.jackbrando.memotome.game.selection;
 
-import android.content.Context;
 import android.view.MotionEvent;
 import android.view.View;
 
 import com.jackbrando.memotome.BattleActivity;
-import com.jackbrando.memotome.game.BattleOption;
+import com.jackbrando.memotome.game.battle.BattleCharacter;
+import com.jackbrando.memotome.game.battle.BattleOption;
 import com.jackbrando.memotome.game.Wheel;
 
 /**
@@ -31,11 +31,26 @@ public class SelectionListener implements View.OnTouchListener {
         float y = event.getY();
         int source = event.getSource();
         BattleActivity activity = (BattleActivity) v.getContext();
-        boolean isLegal = false;
+        Selection chosenSelection = null;
         for (Selection selection : activity.getSelections()) {
             if(selection.isSelected(option, wheel)){
-                isLegal = true;
+                chosenSelection = selection;
             }
         }
+        boolean isSelected = chosenSelection != null;
+        System.out.println("This selection is " + isSelected + "ly legal");
+        if(isSelected){
+            BattleOption selectedOption = chosenSelection.getSelectedOption();
+            System.out.println("Stand back!  I'm about to try " + selectedOption.getName() + " with the power of " + (chosenSelection.getLength() + 1));
+            BattleCharacter hero = activity.getHero();
+            BattleCharacter monster = activity.getMonster();
+            System.out.println("Hero: " + hero.getHitPoints());
+            System.out.println("Monster " + monster.getHitPoints());
+            selectedOption.doAction(hero, monster, chosenSelection.getLength() + 1);
+            System.out.println("BOOM!  Now hero has " + hero.getHitPoints() +
+                    " and the monster has " + monster.getHitPoints() + "!!!111");
+
+        }
+
     }
 }

@@ -1,6 +1,6 @@
 package com.jackbrando.memotome.game.selection;
 
-import com.jackbrando.memotome.game.BattleOption;
+import com.jackbrando.memotome.game.battle.BattleOption;
 import com.jackbrando.memotome.game.Wheel;
 
 import java.util.ArrayList;

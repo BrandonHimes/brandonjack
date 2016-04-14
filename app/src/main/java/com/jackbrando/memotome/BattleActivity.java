@@ -7,7 +7,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-import com.jackbrando.memotome.game.BattleOption;
+import com.jackbrando.memotome.game.battle.BattleCharacter;
+import com.jackbrando.memotome.game.battle.BattleOption;
 import com.jackbrando.memotome.game.Wheel;
 import com.jackbrando.memotome.game.selection.Selection;
 import com.jackbrando.memotome.game.selection.SelectionListener;
@@ -21,6 +22,8 @@ import java.util.List;
 public class BattleActivity extends Activity {
 
     private List<Selection> selections;
+    private BattleCharacter monster;
+    private BattleCharacter hero;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,8 @@ public class BattleActivity extends Activity {
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
+        hero = new BattleCharacter();
+        monster = new BattleCharacter();
         spinAllWheels();
     }
     
@@ -148,5 +153,13 @@ public class BattleActivity extends Activity {
 
     public List<Selection> getSelections() {
         return selections;
+    }
+
+    public BattleCharacter getMonster() {
+        return monster;
+    }
+
+    public BattleCharacter getHero() {
+        return hero;
     }
 }

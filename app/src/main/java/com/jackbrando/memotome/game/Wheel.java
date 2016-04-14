@@ -1,5 +1,7 @@
 package com.jackbrando.memotome.game;
 
+import com.jackbrando.memotome.game.battle.BattleOption;
+
 /**
  * Created by brando on 11/4/15.
  */
