@@ -2,6 +2,7 @@ package com.jackbrando.memotome.component;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
@@ -24,7 +25,7 @@ public class WheelSelectionView extends ImageView {
 
     private static final int IMAGE_DIM = 70;
     private static final int MARGIN_DPS = 20;
-
+    private List<Wheel> wheels;
 
 
     private Canvas canvas = null;
@@ -38,12 +39,12 @@ public class WheelSelectionView extends ImageView {
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(@NonNull Canvas canvas) {
         super.onDraw(canvas);
         this.canvas = canvas;
 
         BattleActivity activity = (BattleActivity) getContext();
-        List<Wheel> wheels = new ArrayList<Wheel>();
+        this.wheels =  new ArrayList<>();
         wheels.add(activity.getWheel1());
         wheels.add(activity.getWheel2());
         wheels.add(activity.getWheel3());
@@ -67,6 +68,6 @@ public class WheelSelectionView extends ImageView {
     }
 
     private float convertToImageCenterCoord(int pos){
-        return (pos * IMAGE_DIM + (new Float(.5) * IMAGE_DIM)) * getResources().getDisplayMetrics().density + MARGIN_DPS;
+        return (pos * IMAGE_DIM + (float) .5 * IMAGE_DIM) * getResources().getDisplayMetrics().density + MARGIN_DPS;
     }
 }

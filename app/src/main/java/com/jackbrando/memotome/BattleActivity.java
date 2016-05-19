@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.jackbrando.memotome.game.battle.BattleCharacter;
@@ -24,6 +25,9 @@ public class BattleActivity extends Activity {
     private List<Selection> selections;
     private BattleCharacter monster;
     private BattleCharacter hero;
+    private static final String[] states = {"SPIN", "ACT", "REACT"};
+
+    private String state = states[0];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +55,16 @@ public class BattleActivity extends Activity {
 
     public void spin(View view) {
         spinAllWheels();
+        this.state = states[1];
+        System.out.println("The state is now: " + this.state);
+        updateSpinButton();
+    }
+
+    private void updateSpinButton() {
+        Button spinButton = (Button) findViewById(R.id.spinButton);
+        boolean enabled = states[0].equals(this.state);
+        spinButton.setEnabled(enabled);
+        System.out.println("The button is " + enabled + "ly enabled.");
     }
 
     private void spinAllWheels() {
@@ -149,6 +163,10 @@ public class BattleActivity extends Activity {
 
     public void setSelections(List<Selection> selections) {
         this.selections = selections;
+        if(this.selections.size() < 1){
+            this.state = states[0];
+            updateSpinButton();
+        }
     }
 
     public List<Selection> getSelections() {
@@ -161,5 +179,23 @@ public class BattleActivity extends Activity {
 
     public BattleCharacter getHero() {
         return hero;
+    }
+
+    public void takeAction(Selection chosenSelection) {
+        BattleOption selectedOption = chosenSelection.getSelectedOption();
+        System.out.println("Stand back!  I'm about to try " + selectedOption.getName() + " with the power of " + (chosenSelection.getLength() + 1));
+        BattleCharacter hero = getHero();
+        BattleCharacter monster = getMonster();
+        System.out.println("Hero: " + hero.getHitPoints());
+        System.out.println("Monster " + monster.getHitPoints());
+        selectedOption.doAction(hero, monster, chosenSelection.getLength() + 1);
+        System.out.println("BOOM!  Now hero has " + hero.getHitPoints() +
+                " and the monster has " + monster.getHitPoints() + "!!!111");
+        this.state = states[0];
+        updateSpinButton();
+    }
+
+    public boolean isActionable() {
+        return states[1].equals(this.state);
     }
 }
