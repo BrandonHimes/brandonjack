@@ -1,6 +1,7 @@
 package com.jackbrando.memotome;
 
 import android.app.Activity;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -45,8 +46,24 @@ public class BattleActivity extends Activity {
         hero = new BattleCharacter();
         monster = new BattleCharacter();
         spinAllWheels();
+        startAnimation(R.id.wheel1Prev, R.drawable.spin);
+        startAnimation(R.id.wheel1Curr, R.drawable.spin2);
+
     }
-    
+
+    private void startAnimation(int id, int spin) {
+        // Load the ImageView that will host the animation and
+        // set its background to our AnimationDrawable XML resource.
+        ImageView img = (ImageView)findViewById(id);
+        img.setBackgroundResource(spin);
+
+        // Get the background, which has been compiled to an AnimationDrawable object.
+        AnimationDrawable frameAnimation = (AnimationDrawable) img.getBackground();
+
+        // Start the animation (looped playback by default).
+        frameAnimation.start();
+    }
+
     private Wheel wheel1 = new Wheel(1);
     private Wheel wheel2 = new Wheel(2);
     private Wheel wheel3 = new Wheel(3);
